@@ -1,6 +1,6 @@
 const InputIcons = ({className,placeholder = "",name = "",type = "text",id = ""}) => {
     return (
-        <div className={`w-full grid grid-cols-[45px,1fr] h-[45px] bg-[#fafafa] overflow-hidden my-1 ${className ?? ""}`}>
+        <div className={`w-full grid grid-cols-[45px,1fr] h-[45px] bg-[#fff] overflow-hidden my-1 ${className ?? ""}`}>
             <div className="flex justify-center items-center bg-black text-white">
                 <p>i</p>
             </div>

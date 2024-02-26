@@ -3,7 +3,7 @@ import ButtonLoader from "../../components/buttons/ButtonLoader";
 import InputIcons from "../../components/inputs/InputIcons";
 import { APP_ASSETS } from "../../utils/assets";
 // cloud 9 - tubo
-const SignUp = () => {
+const Login = () => {
   return (
     <div className="w-full min-h-[100vh] flex justify-center items-center p-4 bg-[#f9f9f9]">
       <form className="p-3 rounded w-full max-w-[700px]">
@@ -15,14 +15,12 @@ const SignUp = () => {
             className="h-[50px]"
           />
           </div>
-          <h3 className="font-bold uppercase text-2xl">Sign Up</h3>
+          <h3 className="font-bold uppercase text-2xl">Login</h3>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          <InputIcons placeholder="Your name" className="sm:col-span-2" />
-          <InputIcons placeholder="Your e-mail" className="sm:col-span-2" />
-          <InputIcons placeholder="Your password" />
-          <InputIcons placeholder="Confirm your password" />
-          <Link to="/home" className="sm:col-span-2 mt-3">
+        <div>
+          <InputIcons placeholder="Your e-mail" className="my-4" />
+          <InputIcons placeholder="Your password" className="my-4"/>
+          <Link to="/home" className="mt-3">
           <ButtonLoader/>
           </Link>
         </div>
@@ -31,4 +29,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;
