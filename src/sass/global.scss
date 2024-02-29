@@ -1,3 +1,6 @@
+body{
+    background-color: #f9f9f9;
+}
 .burger{
     width: 30px;
     height: 21px;
@@ -9,4 +12,9 @@
         height: 100%;
         border-radius: 4px;
     }
+}
+.btn-project{
+    background: #aaa;
+    width: 30px;
+    height: 30px;
 }

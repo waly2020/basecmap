@@ -16,9 +16,9 @@ import { GiAchievement, GiNetworkBars } from "react-icons/gi";
 import { MdWorkOutline } from "react-icons/md";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
-const ButtonIcon = ({ children }) => {
+const ButtonIcon = ({ children,className }) => {
   return (
-    <button className="flex gap-5 items-center bg-black text-white px-4 py-2">
+    <button className={`flex gap-5 items-center bg-black text-white px-4 py-2 ${className}`}>
       <AiOutlineUser size={20} />
       {children}
     </button>
