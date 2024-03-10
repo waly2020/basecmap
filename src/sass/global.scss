@@ -18,3 +18,8 @@ body{
     width: 30px;
     height: 30px;
 }
+iframe{
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+}

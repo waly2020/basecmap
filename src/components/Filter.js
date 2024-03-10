@@ -6,7 +6,7 @@ const Filter = () => {
         setDisplayFilter(!displayFilter);
     }
   return (
-    <div className="relative">
+    <div className="relative z-10">
       <button onClick={onDisplayFilter} className="w-full h-full bg-black text-white flex justify-center items-center">
         <IoMdArrowRoundBack size={20}/>
       </button>
