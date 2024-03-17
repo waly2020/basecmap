@@ -33,7 +33,7 @@ const Gallery = ({ assets = [], active = false,start = 0,onClose}) => {
   };
   return (
     <motion.div style={{scale : 0,opacity : 0}} animate={{scale : active ? 1 : 0,opacity : active ? 1 : 0}} className="fixed w-full h-full bg-[rgba(0,0,0,0.8)] z-50 left-0 top-0 flex flex-col justify-center items-center overflow-hidden">
-      <div className="flex justify-between w-full max-w-[700px] px-4">
+      <div className="flex justify-between w-full max-w-[700px] px-4 py-7">
         <p className="text-white text-2xl">{index + 1}/{assets.length}</p>
         <button onClick={onClickClose}><IoIosCloseCircleOutline size={30} color="#fff"/></button>
       </div>

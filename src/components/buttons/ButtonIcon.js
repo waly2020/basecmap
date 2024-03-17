@@ -1,27 +1,19 @@
 import {
-  AiOutlineUser,
-  AiOutlineMail,
-  AiOutlineNumber,
-  AiOutlineHome,
-  AiFillPieChart,
+  AiOutlineUser
 } from "react-icons/ai";
-import {
-  LiaHospitalSymbolSolid,
-  LiaBirthdayCakeSolid,
-  LiaLanguageSolid,
-  LiaMapMarkedAltSolid,
-} from "react-icons/lia";
-import { PiStudentBold } from "react-icons/pi";
-import { GiAchievement, GiNetworkBars } from "react-icons/gi";
-import { MdWorkOutline } from "react-icons/md";
-import { IoMdArrowRoundBack } from "react-icons/io";
+import {motion} from "framer-motion";
 
-const ButtonIcon = ({ children,className }) => {
+const ButtonIcon = ({ children,className,icon,onClick }) => {
+  const canOnClick = () =>{
+    if(onClick){
+      onClick();
+    }
+  }
   return (
-    <button className={`flex gap-5 items-center bg-black text-white px-4 py-2 ${className}`}>
-      <AiOutlineUser size={20} />
+    <motion.button transition={{duration : 0.04}} whileTap={{scale : 0.98,translateY : 2,opacity : 0.7}} onClick={canOnClick} className={`px-4 py-2 flex gap-5 items-center ${className}`}>
+      {icon ? icon : <></>}
       {children}
-    </button>
+    </motion.button>
   );
 };
 

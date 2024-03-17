@@ -43,4 +43,35 @@ export const attachments = [
         type : 'jpg',
         src : APP_ASSETS.logo_lettre_noire
     },
+];
+export const DISCUSSIONS = [
+    {
+        name : "Developpeurs Front-end",
+        messages : [
+            {
+                email : "walyguema@gmail.com",
+                message : "Hello, how are you ?"
+            },
+            {
+                email : "marc@gmail.com",
+                message : "I'm fine and you ?"
+            },
+            {
+                email : "walyguema@gmail.com",
+                message : "I'm fine, add new task to project"
+            },
+            {
+                email : "marc@gmail.com",
+                message : "Ok !"
+            },
+            {
+                email : "marc@gmail.com",
+                message : "It's ok, you can see it."
+            },
+            {
+                email : "walyguema@gmail.com",
+                message : "Good job !"
+            }
+        ]
+    }
 ]

@@ -1,5 +1,5 @@
 body{
-    background-color: #f9f9f9;
+    background-color: #fff;
 }
 .burger{
     width: 30px;
@@ -22,4 +22,12 @@ iframe{
     &::-webkit-scrollbar {
         width: 0;
     }
+}
+aside,.hidden-scroll{
+    &::-webkit-scrollbar{
+        width: 0;
+    }
+}
+.shadow-close{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.09);
 }
