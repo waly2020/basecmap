@@ -1,7 +1,11 @@
-import { IoMdArrowRoundBack } from "react-icons/io";
+import { IoMdOptions } from "react-icons/io";
+import { HiOutlineUserGroup } from "react-icons/hi";
+import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
+import { MdOutlineDeleteForever } from "react-icons/md";
 import Lorem from "../Lorem";
-import ButtonNotif from "../buttons/ButtonNotif";
 import { Link } from "react-router-dom";
+import { APP_ASSETS } from "../../utils/assets";
+import ButtonIcon from "../buttons/ButtonIcon";
 /*
 - name project,
 - user e-mail,
@@ -19,28 +23,57 @@ import { Link } from "react-router-dom";
   - modal 'want you realy delete this project ?'
 */
 
-const Project = ({id = 0}) => {
+const Project = ({ id = 0 }) => {
   return (
-    <div className=" w-full max-w-[300px] border">
-      <div className="bg-[#717171] grid grid-cols-[1fr,45px] p-2 gap-2">
-        <p className="text-white">Project name</p>
-        <Link to={`/details/${id}`} className="flex text-white justify-end items-center">
-          <IoMdArrowRoundBack size={18}/>
-        </Link>
-        <p className="col-span-2 text-white">Project@gmail.com</p>
+    <div className=" w-full max-w-[300px] rounded overflow-hidden shadow-md">
+      <Header id={id} />
+      <Content />
+      <Footer id={id} />
+    </div>
+  );
+};
+//-------
+const Header = ({ id }) => {
+  return (
+    <div className="relative">
+      <div className="absolute left-0 top-0 h-full w-full">
+        <img className="w-full h-full object-cover" src={APP_ASSETS.cover_2} />
       </div>
-      <div className="p-2">
-        <Lorem className="text-gray-500"/>
-      </div>
-      <div className="bg-gray-100 py-3 px-2 flex justify-between">
-        <div className="flex gap-3">
-          <ButtonNotif value={id} className="btn-project">g</ButtonNotif>
-          <ButtonNotif value={id * 3} className="btn-project">m</ButtonNotif>
+      <div className="relative px-2 py-3 bg-[rgba(0,0,0,0.5)]">
+        <div className="flex justify-between items-center text-white">
+          <p>Projet etablissement</p>
+          <Link to={`/details/${id}`} className="flex justify-end items-center bg-blue-500 p-2 rounded">
+            <IoMdOptions size={20} />
+          </Link>
         </div>
-        <button className="btn-project">d</button>
+        <p className="text-white">walyguema@gmail.com</p>
       </div>
     </div>
   );
 };
-
+//-------
+const Content = () => {
+  return (
+    <div className="p-2">
+      <Lorem word={20} className="text-gray-500" />
+    </div>
+  );
+};
+//-------
+const Footer = ({ id = 2 }) => {
+  return (
+    <div className=" py-3 px-2 flex justify-between">
+      <div className="flex gap-1">
+        <ButtonIcon className="bg-gray-200 rounded text-gray-500" icon={<HiOutlineUserGroup size={20}/>}>
+          {id * 2}
+        </ButtonIcon>
+        <ButtonIcon className="bg-gray-200 rounded text-gray-500" icon={<HiOutlineChatBubbleLeftRight size={20}/>}>
+          {id ** 2}
+        </ButtonIcon>
+      </div>
+      <ButtonIcon className="bg-red-600 rounded text-white" icon={<MdOutlineDeleteForever size={20}/>}/>
+    </div>
+  );
+};
+//-------
 export default Project;

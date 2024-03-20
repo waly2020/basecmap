@@ -22,6 +22,14 @@ import AddFiles from "../../components/Modal/AddFiles";
 import AddDiscussion from "../../components/Modal/AddDiscussion";
 import SeeMembers from "../../components/Modal/SeeMembers";
 import SeeTasks from "../../components/Modal/SeeTasks";
+import { MdGroupAdd } from "react-icons/md";
+import { TbFileDescription } from "react-icons/tb";
+import { RiImageAddFill } from "react-icons/ri";
+import { FaTasks } from "react-icons/fa";
+import { IoChatboxEllipsesOutline } from "react-icons/io5";
+import { HiOutlineUserGroup } from "react-icons/hi";
+import { IoMdOptions } from "react-icons/io";
+
 const Details = () => {
   const [aside,setAside] = useState(false);
   const [gallery,setGallery] = useState(false);
@@ -86,7 +94,7 @@ const Details = () => {
     </Modal>
       <header className="h-[70px] relative">
         <nav className="absolute top-0 left-0 flex justify-between w-full px-4 py-2 text-white z-10">
-          <Link to="/" className="text-2xl"><IoMdArrowRoundBack/></Link>
+          <Link to="/home" className="text-2xl"><IoMdArrowRoundBack/></Link>
           <button className="md:hidden" onClick={activeAside}>Setting</button>
         </nav>
         <div className="h-full relative bg-[rgba(0,0,0,0.5)]">
@@ -101,27 +109,27 @@ const Details = () => {
                 <DisplayMembers members={members}/>
                 <button onClick={onAddMember}>
                   <div className="w-[35px] h-[35px] bg-blue-500 hover:bg-blue-700 transition-all duration-500 rounded-[99px] flex justify-center items-center">
-                  <span className="text-[22px] font-bold m-0 p-0 text-white">+</span>
+                  <span className="text-[22px] font-bold m-0 p-0 text-white"><MdGroupAdd size={15}/></span>
                   </div>
                   <p className="text-[14px] text-gray-500">Add...</p>
                 </button>
                 </div>
             </SectionIcon>
-            <SectionIcon icon={<MdWorkOutline/>} title="Description">
+            <SectionIcon icon={<TbFileDescription/>} title="Description">
                 <Lorem/>
             </SectionIcon>
-            <SectionIcon icon={<MdWorkOutline/>} title="Attachments">
+            <SectionIcon icon={<RiImageAddFill/>} title="Attachments">
                 <div className="flex gap-4 my-3">
                 <DisplayAttachments tab={attachments} onClick={(i) =>{
                   setIndex(i);
                   seeGallery();
                 }}/>
-                <button onClick={onAddFiles} className="w-[80px] h-[80px] bg-blue-500 hover:bg-blue-700 transition-all duration-500 text-3xl text-white rounded">
-                  +
+                <button onClick={onAddFiles} className="w-[80px] h-[80px] bg-blue-500 hover:bg-blue-700 transition-all duration-500 flex justify-center items-center text-3xl text-white rounded">
+                  <RiImageAddFill/>
                 </button>
                 </div>
             </SectionIcon>
-            <SectionIcon icon={<MdWorkOutline/>} title="Tasks">
+            <SectionIcon icon={<FaTasks/>} title="Tasks">
                <Task text="Initialise le projet."/>
                <Task text="Ajouter le projet sur github."/>
                <Task text="Heberger le projet sur vercel."/>
@@ -129,13 +137,13 @@ const Details = () => {
                 Add new task
                </ButtonIcon>
             </SectionIcon>
-            <SectionIcon icon={<MdWorkOutline/>} title="Discussions">
+            <SectionIcon icon={<IoChatboxEllipsesOutline/>} title="Discussions">
                 <div className="flex flex-col gap-2 mt-3">
                 <Discussions discussions={DISCUSSIONS}/>
                 <Discussions discussions={DISCUSSIONS}/>
                 <Discussions discussions={DISCUSSIONS}/>
                 </div>
-                <ButtonIcon icon={<MdAddTask/>} onClick={onAddDiscussion} className="bg-blue-500 rounded text-white my-4 hover:bg-blue-700">
+                <ButtonIcon icon={<IoChatboxEllipsesOutline size={20}/>} onClick={onAddDiscussion} className="bg-blue-500 rounded text-white my-4 hover:bg-blue-700">
                   Add new discussion
                 </ButtonIcon>
             </SectionIcon>
@@ -145,16 +153,15 @@ const Details = () => {
           <h2 className="font-bold">Add to project</h2>
           <ButtonIcon onClick={activeAside} className="md:hidden" icon={<MdWorkOutline/>}/>
           </div>
-          <ButtonAside onClick={onSetting} icon={<MdWorkOutline size={20}/>}><p>Settings project</p></ButtonAside>
-          <ButtonAside onClick={onAddMember} icon={<MdWorkOutline size={20}/>}><p>Add members</p></ButtonAside>
-          <ButtonAside onClick={onAddTask} icon={<MdWorkOutline size={20}/>}><p>Add new tasks</p></ButtonAside>
-          <ButtonAside onClick={onAddFiles} icon={<MdWorkOutline size={20}/>}><p>Add files</p></ButtonAside>
-          <ButtonAside onClick={onAddDiscussion} icon={<MdWorkOutline size={20}/>}><p>Add new discussions</p></ButtonAside>
+          <ButtonAside onClick={onSetting} icon={<IoMdOptions size={20}/>}><p>Settings project</p></ButtonAside>
+          <ButtonAside onClick={onAddMember} icon={<MdGroupAdd size={20}/>}><p>Add members</p></ButtonAside>
+          <ButtonAside onClick={onAddTask} icon={<MdAddTask size={20}/>}><p>Add new tasks</p></ButtonAside>
+          <ButtonAside onClick={onAddFiles} icon={<RiImageAddFill size={20}/>}><p>Add files</p></ButtonAside>
+          <ButtonAside onClick={onAddDiscussion} icon={<IoChatboxEllipsesOutline size={20}/>}><p>Add new discussions</p></ButtonAside>
           <h2 className="font-bold">More informations</h2>
-          <ButtonAside onClick={onSeeMembers} icon={<MdWorkOutline size={20}/>}><p>See all members</p></ButtonAside>
-          <ButtonAside onClick={onSeeTasks} icon={<MdWorkOutline size={20}/>}><p>See all tasks</p></ButtonAside>
-          <ButtonAside onClick={seeGallery} icon={<MdWorkOutline size={20}/>}><p>See all files</p></ButtonAside>
-          {/* <ButtonAside icon={<MdWorkOutline size={20}/>}><p>See discussions</p></ButtonAside> */}
+          <ButtonAside onClick={onSeeMembers} icon={<HiOutlineUserGroup size={20}/>}><p>See all members</p></ButtonAside>
+          <ButtonAside onClick={onSeeTasks} icon={<FaTasks size={20}/>}><p>See all tasks</p></ButtonAside>
+          <ButtonAside onClick={seeGallery} icon={<RiImageAddFill size={20}/>}><p>See all files</p></ButtonAside>
         </aside>
       </main>
     </>

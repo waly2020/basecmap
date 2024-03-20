@@ -1,30 +1,106 @@
 import { Link } from "react-router-dom";
 import Lorem from "../../components/Lorem";
 import { APP_ASSETS } from "../../utils/assets";
+import { AiOutlineUser } from "react-icons/ai";
+import { FaTasks } from "react-icons/fa";
+import ButtonIcon from "../../components/buttons/ButtonIcon";
+import { forwardRef } from "react";
+import { motion } from "framer-motion";
+
+
+const mainVariante = {
+  start : {
+    opacity : 1,
+  },
+  end : {
+      transition: {staggerChildren: .5}
+    }
+  
+}
+
+const imageVariante = {
+  start : {
+    translateY : 300,
+  },
+  end : {
+    translateY : 0,
+  }
+}
 
 const LandingPage = () => {
   return (
-    <header className="w-full relative h-[100vh] bg-[rgba(0,0,0,0.8)] grid grid-cols-2 grid-rows-[70px,1fr]">
-      <img src={APP_ASSETS.background} alt="shadow" className="absolute z-[-1] w-full h-full object-cover"/>
-      <nav className="col-span-2 flex items-center justify-between px-4">
-        <img src={APP_ASSETS.logo_long_blanc} alt="logo blanc" className="h-[50%]"/>
-        <div className="grid gap-2 grid-cols-2">
-        </div>
-      </nav>
-      <div className="p-4 flex items-center justify-center relative overflow-hidden">
-        <img src={APP_ASSETS.header_3} alt="header" className="absolute object-cover top-0 left-0 translate-x-[-10%]"/>
-      </div>
-      <div className="p-4 flex flex-col justify-center">
-        <h1 className="text-8xl font-bold text-white">Welcome to BASECAMP APP</h1>
-        <Lorem className="text-gray-400"/>
-        <div className="flex gap-3 my-5 items-center">
-          <Link to="/login" className="text-white font-bold cursor-pointer bg-black px-10 py-2 rounded-[99px] border-white border-2">Login</Link>
-          <p className="select-none text-white">or</p>
-          <Link to="/signup" className="text-black font-bold cursor-pointer bg-white px-10 py-2 rounded-[99px]">Sign Up</Link>
-        </div>
-      </div>
+    <header className="relative">
+    <div className="absolute left-0 top-0 w-full h-full opacity-[0.1]">
+      <img className="w-full h-full" src={APP_ASSETS.background}/>
+    </div>
+    <div className="relative min-h-screen w-full max-w-[1200px] m-auto grid grid-rows-[80px,1fr]">
+    <Navigation/>
+      <Content/>
+    </div>
+      
     </header>
   );
 };
+const Navigation = () =>{
+  return (
+    <nav className="sm:px-5 px-2 gap-2 py-7 flex justify-between items-center">
+      <img className="h-[45px]" src={APP_ASSETS.logo}/>
+      <Link to="/login" className="w-full max-w-[200px]">
+      <ButtonIcon className="bg-blue-500 rounded shadow text-white w-full justify-center" icon={<AiOutlineUser/>}>
+        Login
+      </ButtonIcon>
+      </Link>
+    </nav>
+  )
+}
+const Content = () =>{
+  return (
+    <div className="sm:px-5 px-2 grid grid-cols-1 md:grid-cols-2 h-full items-center">
+      <div className="relative flex md:block flex-col justify-center items-center">
+        <h1 className="sm:text-7xl text-center md:text-left text-5xl font-bold">Welcome to <span className="block uppercase text-blue-700">basecamp</span></h1>
+        <Lorem className="my-3 text-center md:text-left  text-lg" word={10}/>
+        <Link to="/login">
+        <ButtonIcon className="bg-green-500 rounded w-full max-w-[350px] text-white shadow" icon={<FaTasks/>}>
+          Get started
+        </ButtonIcon>
+        </Link>
+      </div>
+      <motion.div variants={mainVariante} transition={{type : "tween"}} initial={"start"} animate={"end"}  className="relative hidden md:block overflow-hidden">
+        <motion.img variants={imageVariante} className="relative z-[3]" src={APP_ASSETS.from_3}/>
+        <MotionImg variants={imageVariante} img={APP_ASSETS.from_1} className="left-0 top-0"/>
+        <MotionImg variants={imageVariante} img={APP_ASSETS.from_4} className="right-0 bottom-0 z-10"/>
+        <MotionImg variants={imageVariante} img={APP_ASSETS.from_5} className="left-0 bottom-0 z-10"/>
+      </motion.div>
+    </div>
+  )
+}
+
+const AbsoluteImg = forwardRef(({img = "",className = ""},ref) =>{
+  return (
+    <div ref={ref} className={`absolute ${className}`}>
+    <img src={img} className={`w-[200px]`}/>
+    </div>
+  )
+})
+
+const MotionImg = motion(AbsoluteImg);
 
 export default LandingPage;
+/*
+
+
+
+
+
+
+ // add members
+ // add project
+
+
+
+ // chat group
+
+ // mail
+
+ // set profile
+*/

@@ -7,9 +7,14 @@ export const APP_ASSETS = {
     header : "/assets/images/header.jpeg",
     profil : "/assets/images/profil.jpg",
     background : "/assets/images/background.jpg",
-    logo_lettre_blanc : "/assets/images/logo/logo_lettre_blanc.png",
-    logo_lettre_noire : "/assets/images/logo/logo_lettre_noire.png",
+    logo : "/assets/images/logo/logo.png",
     logo_long_blanc : "/assets/images/logo/logo_long_blanc.png",
     logo_long_noire : "/assets/images/logo/logo_long_noire.png",
-    pdf : '/assets/files/cv.pdf'
+    pdf : '/assets/files/cv.pdf',
+    from_1 : "/assets/home/1.png",
+    from_2 : "/assets/home/2.png",
+    from_3 : "/assets/home/3.png",
+    from_4 : "/assets/home/4.png",
+    from_5 : "/assets/home/5.png",
+    from_6 : "/assets/home/6.png"
 }

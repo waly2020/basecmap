@@ -5,6 +5,8 @@ import { APP_ASSETS } from "../../utils/assets";
 import Searsh from "../../components/Searsh/Searsh";
 import Project from "../../components/Project/Project";
 import { MdAddTask } from "react-icons/md";
+import { AiOutlineAppstoreAdd } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Home = () => {
     const [activeAside,setActiveAside] = useState(false);
@@ -12,11 +14,13 @@ const Home = () => {
     return (
         <>
             <nav className="h-[70px] flex justify-between items-center px-4 w-full max-w-[1200px] m-auto">
-            <img alt="logo letter" src={APP_ASSETS.logo_lettre_noire} className="h-[70%]"/>
+            <img alt="logo letter" src={APP_ASSETS.logo} className="h-[60%]"/>
             <div className="flex gap-20 justify-between items-center">
-                <ButtonIcon className="bg-blue-600 rounded text-white shadow-md" icon={<MdAddTask/>}>
+                <Link to="/add">
+                <ButtonIcon className="bg-blue-600 rounded text-white shadow-md" icon={<AiOutlineAppstoreAdd size={20}/>}>
                     Add project
                 </ButtonIcon>
+                </Link>
                 <button className="burger" onClick={() => {setActiveAside(true)}}>
                     <div className="top"></div>
                     <div className="midle"></div>
